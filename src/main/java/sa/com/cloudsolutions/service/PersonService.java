@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.Map;
 
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused","java:S106"})
 @Service
 public class PersonService {
     private static final Logger logger = LoggerFactory.getLogger(PersonService.class);
@@ -57,5 +57,13 @@ public class PersonService {
     public void queries5(Long id) {
         Optional<Person> p = personRepository.findById(id);
         logger.info("Query5 executed");
+    }
+
+    public void utils(String s) {
+        if (org.springframework.util.StringUtils.hasText(s)) {
+            System.out.println("Non empty!");
+        } else {
+            System.out.println("empty!");
+        }
     }
 }
